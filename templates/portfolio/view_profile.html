@@ -1,0 +1,22 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}View Profile{% endblock %}
+
+{% block content %}
+<h2>{{ profile.user.username }}'s Profile</h2>
+<div class="row">
+    <div class="col-md-4">
+        {% if profile.profile_picture %}
+            <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="img-fluid rounded-circle">
+        {% endif %}
+    </div>
+    <div class="col-md-8">
+        <p><strong>Bio:</strong> {{ profile.bio }}</p>
+        <p><strong>Skills:</strong> {{ profile.skills }}</p>
+        <p><strong>Contact Email:</strong> {{ profile.contact_email }}</p>
+        <p><strong>Phone:</strong> {{ profile.phone }}</p>
+        <a href="{% url 'create_profile' %}" class="btn btn-primary">Edit Profile</a>
+    </div>
+</div>
+{% endblock %}
+
